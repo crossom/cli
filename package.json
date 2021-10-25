@@ -1,5 +1,5 @@
 {
-	"name": "symbiosis-cli",
+	"name": "@techmmunity/symbiosis-cli",
 	"version": "0.0.1",
 	"main": "index.js",
 	"types": "index.d.ts",
@@ -43,7 +43,7 @@
 		"eslint": "^7.32.0",
 		"husky": "^7.0.4",
 		"jest": "^27.3.1",
-		"lint-staged": "^11.2.4",
+		"lint-staged": "^11.2.3",
 		"prettier": "^2.3.2",
 		"reflect-metadata": "^0.1.13",
 		"rimraf": "^3.0.2",
@@ -54,9 +54,10 @@
 	"scripts": {
 		"prepare": "husky install",
 		"dev": "env-cmd ts-node src/index.ts",
-		"test": "jest",
+		"test": "jest --passWithNoTests",
 		"test:cov": "jest --coverage --passWithNoTests",
-		"build": "rimraf build dist && tsc && mv build/src dist && rimraf build dist/tests",
+		"build": "rimraf ./dist && tsc && rimraf ./dist/tests",
+		"build:ci": "tsc",
 		"format": "eslint . --fix --quiet",
 		"lint": "eslint . --quiet",
 		"update-dependencies": "yarn upgrade-interactive --latest",

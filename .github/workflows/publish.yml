@@ -20,14 +20,15 @@ jobs:
 
       - name: Build
         run: |
-          yarn build
+          yarn build:ci
 
       - name: Copy files
         run: |
-          cp package.json dist/package.json
-          cp README.md dist/README.md
-          cp LICENSE dist/LICENSE
-          cp -r src/cli/templates dist/cli/templates
+          rm -rf dist/tests
+          cp package.json ./dist/package.json
+          cp README.md ./dist/README.md
+          cp LICENSE ./dist/LICENSE
+          cp -r ./src/cli/templates ./dist/cli/templates
 
       - name: Setup Package Manager
         uses: actions/setup-node@master
