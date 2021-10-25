@@ -1,0 +1,14 @@
+{
+	"root": true,
+	"extends": [
+		"@techmmunity/eslint-config/common",
+		"@techmmunity/eslint-config/typescript",
+		"@techmmunity/eslint-config/jest"
+	],
+	"rules": {
+		"no-console": ["error", { "allow": ["error"] }],
+		"@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0, 1] }],
+		"@typescript-eslint/no-require-imports": "off",
+		"@typescript-eslint/no-var-requires": "off"
+	}
+}

@@ -1,0 +1,13 @@
+import { DynamoDbConnectionOptions } from "@techmmunity/symbiosis-dynamodb";
+import { ConfigFile } from "@techmmunity/symbiosis-cli";
+
+const config: ConfigFile<DynamoDbConnectionOptions> = {
+	plugin: "@techmmunity/symbiosis-dynamodb",
+	connectionConfig: {
+		entities: [],
+		databaseConfig: {},
+	},
+	migrationsDir: "src/migrations",
+};
+
+module.exports = config;

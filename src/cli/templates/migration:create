@@ -1,0 +1,19 @@
+/**
+ * Migration ${CODE}
+ *
+ * ${DESCRIPTION}
+ */
+import { BaseMigration, QueryRunner } from "@techmmunity/symbiosis-cli";
+
+export class Migration implements BaseMigration {
+	public code = "${CODE}";
+	public description = "${DESCRIPTION}";
+
+	public async up(queryRunner: QueryRunner) {
+		await queryRunner;
+	}
+
+	public async down(queryRunner: QueryRunner) {
+		await queryRunner;
+	}
+}
