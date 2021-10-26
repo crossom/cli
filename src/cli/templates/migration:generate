@@ -13,10 +13,10 @@ export class Migration implements BaseMigration {
 	public description = "${DESCRIPTION}";
 
 	public async up(queryRunner: QueryRunner) {
-		await queryRunner;
+		${MIGRATION_UP_LOGIC}
 	}
 
 	public async down(queryRunner: QueryRunner) {
-		await queryRunner;
+		${MIGRATION_DOWN_LOGIC}
 	}
 }

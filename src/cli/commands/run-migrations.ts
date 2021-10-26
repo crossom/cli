@@ -1,34 +1,21 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import { existsSync, readdirSync } from "fs";
-import { BaseConnection, BaseConnectionOptions } from "@techmmunity/symbiosis";
 import { isEmptyArray } from "@techmmunity/utils";
 
 import { getConfigFile } from "../utils/get-config-file";
 import { getRootPath } from "../utils/get-root-path";
 import { Logger } from "../../utils/logger";
 
-import { SyncManager as SyncManagerType } from "../../lib/sync-manager";
-import { QueryRunner as QueryRunnerType } from "../../lib/query-runner";
+import { BaseQueryRunner } from "../../lib/query-runner";
 import { getMigrationsPath } from "../utils/get-migrations-path";
-
-interface Plugin {
-	Connection: {
-		new (connectionConfig: BaseConnectionOptions): BaseConnection;
-	};
-	QueryRunner: {
-		new (connection: any): QueryRunnerType;
-	};
-	SyncManager: {
-		new (connection: any): SyncManagerType;
-	};
-}
+import { Plugin } from "./types/plugin";
 
 interface MigrationFile {
 	Migration: {
 		new (): {
-			up: (queryRunner: QueryRunnerType) => Promise<void>;
-			down: (queryRunner: QueryRunnerType) => Promise<void>;
+			up: (queryRunner: BaseQueryRunner) => Promise<void>;
+			down: (queryRunner: BaseQueryRunner) => Promise<void>;
 		};
 	};
 }

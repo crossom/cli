@@ -1,44 +1,30 @@
-import { BaseConnection } from "@techmmunity/symbiosis";
+import {
+	BaseQueryRunnerType,
+	CreateEntityParams,
+	CreateColumnParams,
+	CreateIndexParams,
+	CreateEnumParams,
+} from "./types/query-runner";
 
-/**
- * Create
- */
-interface CreateTableParams {
-	tableName: string;
-	extras?: Record<string, any>;
-}
+export abstract class BaseQueryRunner<Connection = any>
+	implements BaseQueryRunnerType
+{
+	public abstract queries: Array<any>;
 
-interface CreateIndexParams {
-	tableName: string;
-	indexName: string;
-	columns: Array<string>;
-	extras?: Record<string, any>;
-}
-
-interface CreateColumnParams {
-	tableName: string;
-	columnName: string;
-	comment?: string;
-	columnType?: string;
-	enumName?: string;
-	enumValues?: Array<number | string>;
-	extras?: Record<string, any>;
-}
-
-export abstract class QueryRunner {
-	public constructor(public readonly connection: BaseConnection) {}
+	public constructor(public readonly connection: Connection) {}
 
 	/**
 	 * Create
 	 */
 
-	public abstract createTable(p: CreateTableParams): this;
-	public abstract createIndex(p: CreateIndexParams): this;
-	public abstract createColumn(p: CreateColumnParams): this;
+	public abstract createEntity(p: CreateEntityParams): void;
+	public abstract createColumn(p: CreateColumnParams): void;
+	public abstract createEnum(p: CreateEnumParams): void;
+	public abstract createIndex(p: CreateIndexParams): void;
 
 	/**
 	 * Run
 	 */
 
-	public abstract run(): void;
+	public abstract run(): Promise<void>;
 }
