@@ -1,7 +1,11 @@
-import { BaseConnection } from "@techmmunity/symbiosis";
+import { CreateMigrationRecordParams } from "./types/sync-manager";
 
-export abstract class SyncManager {
-	public constructor(protected readonly connection: BaseConnection) {}
+export abstract class BaseSyncManager<Connection = any> {
+	public constructor(protected readonly connection: Connection) {}
 
 	public abstract getExecutedMigrations(): Promise<Array<string>>;
+
+	public abstract createMigrationRecord(
+		p: CreateMigrationRecordParams,
+	): Promise<void>;
 }

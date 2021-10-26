@@ -3,6 +3,7 @@ import { Command } from "commander";
 import { Logger } from "../../utils/logger";
 
 import { genConfig } from "./gen-config";
+import { genMigrations } from "./gen-migration";
 import { createMigration } from "./migration-create";
 
 const handleInvalidCommand = (program: Command) => {
@@ -31,6 +32,13 @@ export const loadCommands = (program: Command) => {
 		.command("gen:config")
 		.description("Create an example config file.")
 		.action(() => genConfig());
+
+	/** ------- */
+
+	program
+		.command("migration:generate")
+		.description("Generate migrations.")
+		.action(() => genMigrations());
 
 	/** ------- */
 
