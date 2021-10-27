@@ -125,6 +125,7 @@
 		"prebuild",
 		"sonarjs",
 		"symb",
+		"symbiosisrc",
 		"techmmunity",
 		"transpiled",
 		"tsbuildinfo",

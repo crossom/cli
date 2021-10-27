@@ -6,17 +6,18 @@
  * @plugin ${PLUGIN}
  * @symbVersion ${SYMB_VERSION}
  */
-import { BaseMigration, QueryRunner } from "@techmmunity/symbiosis-cli";
+import { BaseMigration, BaseQueryRunner } from "@techmmunity/symbiosis-cli";
 
 export class Migration implements BaseMigration {
 	public code = "${CODE}";
+
 	public description = "${DESCRIPTION}";
 
-	public async up(queryRunner: QueryRunner) {
-		${MIGRATION_UP_LOGIC}
+	public async up(queryRunner: BaseQueryRunner) {
+${MIGRATION_UP_LOGIC}
 	}
 
-	public async down(queryRunner: QueryRunner) {
-		${MIGRATION_DOWN_LOGIC}
+	public async down(queryRunner: BaseQueryRunner) {
+${MIGRATION_DOWN_LOGIC}
 	}
 }

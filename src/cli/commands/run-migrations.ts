@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { existsSync, readdirSync } from "fs";
+import { readdirSync } from "fs";
 import { isEmptyArray } from "@techmmunity/utils";
 
 import { getConfigFile } from "../utils/get-config-file";
-import { getRootPath } from "../utils/get-root-path";
 import { Logger } from "../../utils/logger";
 
 import { BaseQueryRunner } from "../../lib/query-runner";
 import { getMigrationsPath } from "../utils/get-migrations-path";
 import { Plugin } from "./types/plugin";
+import { loadEntities } from "../utils/load-entities";
+import { isPackageInstalled } from "../utils/package-installed";
 
 interface MigrationFile {
 	Migration: {
@@ -23,9 +24,9 @@ interface MigrationFile {
 export const runMigrations = async () => {
 	const migrationsPath = getMigrationsPath();
 
-	const { connectionConfig, plugin } = getConfigFile();
+	const { connectionConfig, plugin, entitiesDir } = getConfigFile();
 
-	if (!existsSync(getRootPath(`node_modules/${plugin}`))) {
+	if (!isPackageInstalled(plugin)) {
 		Logger.error(`Plugin not found: ${plugin}`);
 
 		process.exit(1);
@@ -33,7 +34,12 @@ export const runMigrations = async () => {
 
 	const { Connection, QueryRunner, SyncManager } = require(plugin) as Plugin;
 
-	const connection = new Connection(connectionConfig);
+	const entities = await loadEntities(entitiesDir);
+
+	const connection = new Connection({
+		...connectionConfig,
+		entities,
+	});
 
 	await connection.connect();
 

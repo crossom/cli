@@ -6,7 +6,7 @@ export const getTemplate = (templateName: string) => {
 	if (localBinExists()) {
 		return readFileSync(
 			getRootPath(
-				`node_modules/@techmmunity/symbiosis-cli/templates/${templateName}`,
+				`node_modules/@techmmunity/symbiosis-cli/cli/templates/${templateName}`,
 			),
 			"utf8",
 		);

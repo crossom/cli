@@ -1,7 +1,7 @@
 import { BaseQueryRunner } from "./query-runner";
 
 export abstract class BaseMigration {
-	public abstract name: string;
+	public abstract code: string;
 
 	public abstract description: string;
 

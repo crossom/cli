@@ -55,7 +55,7 @@ export class MigrationGenerator implements BaseQueryRunnerType {
 	public format() {
 		return {
 			up: format(this.queries),
-			down: format(this.queries.reverse()),
+			down: "",
 		};
 	}
 }

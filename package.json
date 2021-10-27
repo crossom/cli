@@ -29,12 +29,15 @@
 	],
 	"peerDependencies": {
 		"@techmmunity/symbiosis": "^0.0.21",
-		"reflect-metadata": "^0.1.13"
+		"reflect-metadata": "^0.1.13",
+		"typescript": "^4.4.4"
 	},
 	"dependencies": {
 		"@techmmunity/utils": "^1.4.0",
+		"@types/glob": "^7.2.0",
 		"chalk": "^4.1.2",
-		"commander": "^8.3.0"
+		"commander": "^8.3.0",
+		"glob": "^7.2.0"
 	},
 	"devDependencies": {
 		"@techmmunity/eslint-config": "^5.0.4",
@@ -56,12 +59,13 @@
 		"dev": "env-cmd ts-node src/index.ts",
 		"test": "jest --passWithNoTests",
 		"test:cov": "jest --coverage --passWithNoTests",
-		"build": "rimraf ./dist && tsc --build --force && rimraf ./dist/tests",
+		"build": "rimraf ./dist && tsc --build --force && cp -r src/cli/templates dist/cli/templates && rimraf ./dist/tests",
 		"build:ci": "tsc",
 		"format": "eslint . --fix --quiet",
 		"lint": "eslint . --quiet",
-		"update-dependencies": "yarn upgrade-interactive --latest",
+		"upgrade-dependencies": "yarn upgrade-interactive --latest",
 		"husky:pre-commit": "tsc && lint-staged",
-		"lk": "yarn build && cp package.json dist/package.json && cd dist && yarn link && cd .."
+		"lk": "yarn build && cp package.json dist/package.json && cd dist && yarn link && cd ..",
+		"ulk": "yarn unlink && yarn lk && chmod +x dist/cli/bin/index.js"
 	}
 }

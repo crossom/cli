@@ -5,7 +5,8 @@ export const format = (queries: Array<Query>) => {
 		.map(({ method, data }) => {
 			const formattedData = JSON.stringify(data, null, "\t")
 				.replace(/\n\t/g, "\n\t\t\t")
-				.replace(/}$/, "\t\t}");
+				.replace(/}$/, "\t\t}")
+				.replace(/"([^"]+)":/g, "$1:");
 
 			return `${"\t\t"}queryRunner.${method}(${formattedData});`;
 		})
