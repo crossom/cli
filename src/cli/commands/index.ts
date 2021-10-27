@@ -3,7 +3,7 @@ import { Command } from "commander";
 import { Logger } from "../../utils/logger";
 
 import { genConfig } from "./gen-config";
-import { genMigrations } from "./gen-migration";
+import { genMigrations } from "./gen-migration/gen-migration";
 import { createMigration } from "./migration-create";
 
 const handleInvalidCommand = (program: Command) => {
@@ -20,7 +20,7 @@ const handleInvalidCommand = (program: Command) => {
 
 export const loadCommands = (program: Command) => {
 	program
-		.command("migration:create <description...>")
+		.command("create:migration <description...>")
 		.description("Create an empty migration.")
 		.action((description: Array<string>) =>
 			createMigration({ description: description.join(" ") }),
@@ -36,7 +36,7 @@ export const loadCommands = (program: Command) => {
 	/** ------- */
 
 	program
-		.command("migration:generate")
+		.command("gen:migration")
 		.description("Generate migrations.")
 		.action(() => genMigrations());
 

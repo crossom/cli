@@ -5,10 +5,10 @@ import { ConfigFile } from "../types/config";
 import { Logger } from "../../utils/logger";
 
 export const getConfigFile = () => {
-	const path = getRootPath("symbiosis.ts");
+	const path = getRootPath("symbiosis.config.js");
 
 	if (existsSync(path)) {
-		const config = require(getRootPath("symbiosis.ts")) as ConfigFile;
+		const config = require(path) as ConfigFile;
 
 		if (getTypeof(config) === "object") {
 			if (!config.plugin) {
@@ -30,7 +30,7 @@ export const getConfigFile = () => {
 		}
 	}
 
-	Logger.error("Missing config file: symbiosis.ts");
+	Logger.error("Missing config file: symbiosis.config.js");
 	Logger.log("Use `gen:config` to automatic generate a config file");
 
 	process.exit(1);

@@ -5,6 +5,17 @@ export interface BaseQueryRunnerType {
 	createIndex: any;
 }
 
+export type ColumnType =
+	| string
+	| "array-date"
+	| "array-number"
+	| "array-object"
+	| "array-string"
+	| "date"
+	| "number"
+	| "object"
+	| "string";
+
 /**
  * Create
  */
@@ -19,7 +30,7 @@ export interface CreateColumnParams {
 	columnDatabaseName: string;
 	primary?: boolean;
 	comment?: string;
-	type?: string;
+	type?: ColumnType;
 	enumName?: string;
 	extras?: Record<string, any>;
 }

@@ -1,13 +1,24 @@
-import { DynamoDbConnectionOptions } from "@techmmunity/symbiosis-dynamodb";
-import { ConfigFile } from "@techmmunity/symbiosis-cli";
+/**
+ * You can use this file to automatically connect with Techmmunity Symbiosis.
+ *
+ * We recommend that you use env vars to get your database credentials
+ * values, and commit this file, so it's easier to generate migrations.
+ */
 
-const config: ConfigFile<DynamoDbConnectionOptions> = {
+module.exports = {
 	plugin: "@techmmunity/symbiosis-dynamodb",
 	connectionConfig: {
-		entities: [],
+		namingStrategy: {
+			entity: "snake_case",
+			column: "camelCase",
+		},
+		suffix: {
+			entity: {
+				remove: "Entity",
+			},
+		},
 		databaseConfig: {},
 	},
 	migrationsDir: "src/migrations",
+	entitiesDir: ["src/**/*.entity.ts"],
 };
-
-module.exports = config;

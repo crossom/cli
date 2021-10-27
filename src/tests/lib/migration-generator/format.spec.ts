@@ -35,18 +35,18 @@ describe("MigrationGenerator > format", () => {
 		}
 
 		expect(result).toBe(`		queryRunner.createEntity({
-			"databaseName": "databaseName",
-			"extras": {
-				"aa": [
+			databaseName: "databaseName",
+			extras: {
+				aa: [
 					{
-						"foo": "sadas"
+						foo: "sadas"
 					}
 				]
 			}
 		});
 		queryRunner.createColumn({
-			"columnDatabaseName": "columnDatabaseName",
-			"entityDatabaseName": "entityDatabaseName"
+			columnDatabaseName: "columnDatabaseName",
+			entityDatabaseName: "entityDatabaseName"
 		});
 
 		await queryRunner.run();`);

@@ -56,5 +56,5 @@ tsconfig*
 !tsconfig.build.json
 
 # local
-symbiosis.js
+symbiosis.config.js
 /migrations

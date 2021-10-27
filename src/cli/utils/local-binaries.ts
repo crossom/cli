@@ -6,7 +6,7 @@ import { getRootPath } from "./get-root-path";
 
 export const loadLocalBinCommandLoader = (program: Command) => {
 	const { loadCommands } = require(getRootPath(
-		"node_modules/@techmmunity/symbiosis-cli/commands",
+		"node_modules/@techmmunity/symbiosis-cli/cli/commands",
 	));
 
 	return loadCommands(program);
