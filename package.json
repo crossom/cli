@@ -1,12 +1,12 @@
 {
 	"name": "@techmmunity/symbiosis-cli",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"license": "Apache-2.0",
 	"author": "Techmmunity",
 	"description": "CLI for @techmmunity/symbiosis",
-	"homepage": "https://github.com/techmmunity/symbiosis-cli#readme",
+	"homepage": "https://symbiosis.techmmunity.com.br/",
 	"bin": {
 		"symb": "./cli/bin/index.js"
 	},
@@ -28,22 +28,20 @@
 		"techmmunity-symbiosis"
 	],
 	"peerDependencies": {
-		"@techmmunity/symbiosis": "^0.0.21",
+		"@techmmunity/symbiosis": "^0.0.24",
 		"reflect-metadata": "^0.1.13",
 		"typescript": "^4.4.4"
 	},
 	"dependencies": {
-		"@techmmunity/utils": "^1.4.0",
-		"@types/glob": "^7.2.0",
+		"@techmmunity/utils": "^1.5.0",
 		"chalk": "^4.1.2",
-		"commander": "^8.3.0",
-		"glob": "^7.2.0"
+		"commander": "^8.3.0"
 	},
 	"devDependencies": {
-		"@techmmunity/eslint-config": "^5.0.4",
-		"@techmmunity/symbiosis": "^0.0.21",
+		"@techmmunity/eslint-config": "^5.1.2",
+		"@techmmunity/symbiosis": "^0.0.24",
 		"@types/jest": "^27.0.1",
-		"eslint": "^7.32.0",
+		"eslint": "^8.1.0",
 		"husky": "^7.0.4",
 		"jest": "^27.3.1",
 		"lint-staged": "^11.2.3",
@@ -56,7 +54,7 @@
 	},
 	"scripts": {
 		"prepare": "husky install",
-		"dev": "env-cmd ts-node src/index.ts",
+		"dev": "ts-node src/index.ts",
 		"test": "jest --passWithNoTests",
 		"test:cov": "jest --coverage --passWithNoTests",
 		"build": "rimraf ./dist && tsc --build --force && cp -r src/cli/templates dist/cli/templates && rimraf ./dist/tests",

@@ -1,4 +1,4 @@
-import { getRootPath } from "./get-root-path";
+import { getRootPath } from "@techmmunity/utils";
 
 export const getSymbVersion = () => {
 	const { dependencies } = require(getRootPath("package.json"));

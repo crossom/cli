@@ -1,16 +1,14 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import { readdirSync } from "fs";
-import { isEmptyArray } from "@techmmunity/utils";
+import { isEmptyArray, isPackageInstalled } from "@techmmunity/utils";
 
+import { loadEntities, Logger } from "@techmmunity/symbiosis";
 import { getConfigFile } from "../utils/get-config-file";
-import { Logger } from "../../utils/logger";
 
 import { BaseQueryRunner } from "../../lib/query-runner";
 import { getMigrationsPath } from "../utils/get-migrations-path";
 import { Plugin } from "./types/plugin";
-import { loadEntities } from "../utils/load-entities";
-import { isPackageInstalled } from "../utils/package-installed";
 
 interface MigrationFile {
 	Migration: {
@@ -27,7 +25,7 @@ export const runMigrations = async () => {
 	const { connectionConfig, plugin, entitiesDir } = getConfigFile();
 
 	if (!isPackageInstalled(plugin)) {
-		Logger.error(`Plugin not found: ${plugin}`);
+		Logger.cliError(`Plugin not found: ${plugin}`);
 
 		process.exit(1);
 	}
@@ -53,7 +51,7 @@ export const runMigrations = async () => {
 	);
 
 	if (isEmptyArray(notExecutedMigrations)) {
-		Logger.log("Everything is already synced.");
+		Logger.cliLog("Everything is already synced.");
 
 		process.exit(0);
 	}

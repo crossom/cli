@@ -1,6 +1,6 @@
+import { getRootPath } from "@techmmunity/utils";
 import { writeFileSync } from "fs";
 
-import { getRootPath } from "../utils/get-root-path";
 import { getTemplate } from "../utils/get-template";
 
 export const genConfig = () => {

@@ -35,13 +35,15 @@ This is the CLI for for [@techmmunity/symbiosis](https://github.com/techmmunity/
 With yarn
 
 ```
-yarn add @techmmunity/symbiosis reflect-metadata @techmmunity/symbiosis-cli
+yarn add @techmmunity/symbiosis-cli
 ```
 
 With npm
 
 ```
-npm i --save @techmmunity/symbiosis reflect-metadata @techmmunity/symbiosis-cli
+npm i @techmmunity/symbiosis-cli
 ```
 
 ## Usage
+
+Please, check [the docs](https://symbiosis.techmmunity.com.br/docs/overview/cli) for more information.

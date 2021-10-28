@@ -5,6 +5,8 @@ export abstract class BaseSyncManager<Connection = any> {
 
 	public abstract getExecutedMigrations(): Promise<Array<string>>;
 
+	public abstract createMigrationsTable(): Promise<void>;
+
 	public abstract createMigrationRecord(
 		p: CreateMigrationRecordParams,
 	): Promise<void>;

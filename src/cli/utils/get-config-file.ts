@@ -1,8 +1,7 @@
 import { existsSync } from "fs";
-import { getTypeof } from "@techmmunity/utils";
-import { getRootPath } from "./get-root-path";
+import { getRootPath, getTypeof } from "@techmmunity/utils";
+import { Logger } from "@techmmunity/symbiosis";
 import { ConfigFile } from "../types/config";
-import { Logger } from "../../utils/logger";
 
 export const getConfigFile = () => {
 	const path = getRootPath("symbiosis.config.js");
@@ -12,17 +11,17 @@ export const getConfigFile = () => {
 
 		if (getTypeof(config) === "object") {
 			if (!config.plugin) {
-				Logger.error("Missing config: plugin");
+				Logger.cliError("Missing config: plugin");
 				process.exit(1);
 			}
 
 			if (!config.connectionConfig) {
-				Logger.error("Missing config: connectionConfig");
+				Logger.cliError("Missing config: connectionConfig");
 				process.exit(1);
 			}
 
 			if (!config.migrationsDir) {
-				Logger.error("Missing config: migrationsDir");
+				Logger.cliError("Missing config: migrationsDir");
 				process.exit(1);
 			}
 
@@ -30,8 +29,8 @@ export const getConfigFile = () => {
 		}
 	}
 
-	Logger.error("Missing config file: symbiosis.config.js");
-	Logger.log("Use `gen:config` to automatic generate a config file");
+	Logger.cliError("Missing config file: symbiosis.config.js");
+	Logger.cliLog("Use `gen:config` to automatic generate a config file");
 
 	process.exit(1);
 };
