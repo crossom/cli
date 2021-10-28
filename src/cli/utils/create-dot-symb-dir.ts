@@ -1,5 +1,5 @@
+import { getRootPath } from "@techmmunity/utils";
 import { mkdirSync, existsSync, readFileSync, writeFileSync } from "fs";
-import { getRootPath } from "./get-root-path";
 
 export const createDotSymbiosisDir = (path: string) => {
 	const dotSymbFolderPath = getRootPath(".symbiosis");

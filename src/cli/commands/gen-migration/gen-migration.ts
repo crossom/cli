@@ -2,17 +2,15 @@
 
 import { existsSync, writeFileSync } from "fs";
 
-import { cleanObj, isEmptyObject } from "@techmmunity/utils";
+import { cleanObj, getRootPath, isEmptyObject } from "@techmmunity/utils";
+import { loadEntities, Logger } from "@techmmunity/symbiosis";
 import { getConfigFile } from "../../utils/get-config-file";
-import { getRootPath } from "../../utils/get-root-path";
-import { Logger } from "../../../utils/logger";
 
 import { getMigrationsPath } from "../../utils/get-migrations-path";
 import { MigrationGenerator } from "../../../lib/migration-generator";
 import { Plugin } from "../types/plugin";
 import { getTemplate } from "../../utils/get-template";
 import { getSymbVersion } from "../../utils/get-symb-version";
-import { loadEntities } from "../../utils/load-entities";
 import { getColType } from "./helpers/get-col-type";
 
 export const genMigrations = async () => {
@@ -23,7 +21,7 @@ export const genMigrations = async () => {
 	const pluginPath = getRootPath(`node_modules/${plugin}`);
 
 	if (!existsSync(pluginPath)) {
-		Logger.error(`Plugin not found: ${plugin}`);
+		Logger.cliError(`Plugin not found: ${plugin}`);
 
 		process.exit(1);
 	}

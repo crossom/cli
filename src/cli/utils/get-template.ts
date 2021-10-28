@@ -1,5 +1,5 @@
+import { getRootPath } from "@techmmunity/utils";
 import { readFileSync } from "fs";
-import { getRootPath } from "./get-root-path";
 import { localBinExists } from "./local-bin-exists";
 
 export const getTemplate = (templateName: string) => {

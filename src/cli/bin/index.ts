@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
+import { getRootPath } from "@techmmunity/utils";
 import { program } from "commander";
 
 import { loadCommands } from "../commands";
@@ -11,9 +12,13 @@ import { localBinExists } from "../utils/local-bin-exists";
 import { loadLocalBinCommandLoader } from "../utils/local-binaries";
 
 const bootstrap = () => {
+	const packageJsonPath = getRootPath(
+		"node_modules/@techmmunity/symbiosis-cli/package.json",
+	);
+
 	program
 		.version(
-			require("../../package.json").version,
+			require(packageJsonPath).version,
 			"-v, --version",
 			"Output the current version.",
 		)

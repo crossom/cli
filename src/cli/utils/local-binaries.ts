@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-require-imports */
 
+import { getRootPath } from "@techmmunity/utils";
 import { Command } from "commander";
-import { getRootPath } from "./get-root-path";
 
 export const loadLocalBinCommandLoader = (program: Command) => {
 	const { loadCommands } = require(getRootPath(
