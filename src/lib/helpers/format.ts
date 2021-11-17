@@ -2,11 +2,15 @@ import { Query } from "../types/migration-generator";
 
 export const format = (queries: Array<Query>) => {
 	const query = queries
-		.map(({ method, data }) => {
+		.map(({ command, type, data }) => {
 			const formattedData = JSON.stringify(data, null, "\t")
 				.replace(/\n\t/g, "\n\t\t\t")
 				.replace(/}$/, "\t\t}")
 				.replace(/"([^"]+)":/g, "$1:");
+
+			const method = `${command}${
+				type.charAt(0).toUpperCase() + type.slice(1)
+			}`;
 
 			return `${"\t\t"}queryRunner.${method}(${formattedData});`;
 		})

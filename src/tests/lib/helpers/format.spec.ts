@@ -1,10 +1,11 @@
-import { format } from "../../../lib/migration-generator/format";
+import { format } from "../../../lib/helpers/format";
 import { Query } from "../../../lib/types/migration-generator";
 
 describe("MigrationGenerator > format", () => {
 	const queries: Array<Query> = [
 		{
-			method: "createEntity",
+			command: "create",
+			type: "entity",
 			data: {
 				databaseName: "databaseName",
 				extras: {
@@ -17,7 +18,8 @@ describe("MigrationGenerator > format", () => {
 			},
 		},
 		{
-			method: "createColumn",
+			command: "create",
+			type: "column",
 			data: {
 				columnDatabaseName: "columnDatabaseName",
 				entityDatabaseName: "entityDatabaseName",

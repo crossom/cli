@@ -7,11 +7,11 @@ import { loadEntities, Logger } from "@techmmunity/symbiosis";
 import { getConfigFile } from "../../utils/get-config-file";
 
 import { getMigrationsPath } from "../../utils/get-migrations-path";
-import { MigrationGenerator } from "../../../lib/migration-generator";
 import { Plugin } from "../types/plugin";
 import { getTemplate } from "../../utils/get-template";
 import { getSymbVersion } from "../../utils/get-symb-version";
 import { getColType } from "./helpers/get-col-type";
+import { MigrationHandler } from "../../../lib/migration-handler";
 
 export const genMigrations = async () => {
 	const migrationsPath = getMigrationsPath();
@@ -41,7 +41,7 @@ export const genMigrations = async () => {
 	entities.forEach(entity => {
 		const entityMetadata = connection.entityManager.getEntityMetadata(entity);
 
-		const migration = new MigrationGenerator();
+		const migration = new MigrationHandler();
 
 		/**
 		 * Entity
@@ -112,7 +112,7 @@ export const genMigrations = async () => {
 
 		const code = `${Date.now()}-${entityMetadata.name}`;
 
-		const { up, down } = migration.format();
+		const { up, down } = migration.genMigration();
 
 		const formattedTemplate = template
 			.replace(/\$\{CODE\}/g, code)

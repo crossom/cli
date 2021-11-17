@@ -1,7 +1,7 @@
 /**
  * Plugin
  */
-export * from "./lib/migration-generator";
+export * from "./lib/migration-handler";
 export * from "./lib/migration.entity";
 export * from "./lib/migration";
 export * from "./lib/query-runner";

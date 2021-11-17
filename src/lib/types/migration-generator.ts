@@ -1,5 +1,4 @@
 import {
-	BaseQueryRunnerType,
 	CreateColumnParams,
 	CreateEntityParams,
 	CreateEnumParams,
@@ -7,26 +6,27 @@ import {
 } from "./query-runner";
 
 interface BaseQuery {
-	method: keyof BaseQueryRunnerType;
+	command: "create";
+	type: "column" | "entity" | "enum" | "index";
 }
 
 interface CreateEntityQuery extends BaseQuery {
-	method: "createEntity";
+	type: "entity";
 	data: CreateEntityParams;
 }
 
 interface CreateColumnQuery extends BaseQuery {
-	method: "createColumn";
+	type: "column";
 	data: CreateColumnParams;
 }
 
 interface CreateEnumQuery extends BaseQuery {
-	method: "createEnum";
+	type: "enum";
 	data: CreateEnumParams;
 }
 
 interface CreateIndexQuery extends BaseQuery {
-	method: "createIndex";
+	type: "index";
 	data: CreateIndexParams;
 }
 
