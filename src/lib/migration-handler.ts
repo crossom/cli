@@ -1,18 +1,17 @@
 import { cleanObj } from "@techmmunity/utils";
-import { Query } from "../types/migration-generator";
+import { format } from "./helpers/format";
+import type { Query } from "./types/migration-generator";
 import {
-	BaseQueryRunnerType,
-	CreateColumnParams,
 	CreateEntityParams,
-	CreateEnumParams,
+	CreateColumnParams,
 	CreateIndexParams,
-} from "../types/query-runner";
-import { format } from "./format";
+	CreateEnumParams,
+} from "./types/query-runner";
 
-export class MigrationGenerator implements BaseQueryRunnerType {
+export class MigrationHandler<Connection = any> {
 	public queries: Array<Query>;
 
-	public constructor() {
+	public constructor(public readonly connection?: Connection) {
 		this.queries = [];
 	}
 
@@ -22,37 +21,41 @@ export class MigrationGenerator implements BaseQueryRunnerType {
 
 	public createEntity(data: CreateEntityParams) {
 		this.queries.push({
-			method: "createEntity",
+			command: "create",
+			type: "entity",
 			data: cleanObj(data),
 		});
 	}
 
 	public createColumn(data: CreateColumnParams) {
 		this.queries.push({
-			method: "createColumn",
+			command: "create",
+			type: "column",
 			data: cleanObj(data),
 		});
 	}
 
 	public createEnum(data: CreateEnumParams) {
 		this.queries.push({
-			method: "createEnum",
+			command: "create",
+			type: "enum",
 			data: cleanObj(data),
 		});
 	}
 
 	public createIndex(data: CreateIndexParams) {
 		this.queries.push({
-			method: "createIndex",
+			command: "create",
+			type: "index",
 			data: cleanObj(data),
 		});
 	}
 
 	/**
-	 * Run
+	 * Generate Migration Text
 	 */
 
-	public format() {
+	public genMigration() {
 		return {
 			up: format(this.queries),
 			down: "",

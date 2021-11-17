@@ -1,10 +1,3 @@
-export interface BaseQueryRunnerType {
-	createEntity: any;
-	createColumn: any;
-	createEnum: any;
-	createIndex: any;
-}
-
 export type ColumnType =
 	| string
 	| "array-date"
