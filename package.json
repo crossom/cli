@@ -34,7 +34,7 @@
 	},
 	"dependencies": {
 		"@techmmunity/utils": "^1.5.0",
-		"chalk": "^4.1.2",
+		"chalk": "^5.0.0",
 		"commander": "^8.3.0"
 	},
 	"devDependencies": {
