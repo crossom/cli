@@ -28,7 +28,7 @@
 		"techmmunity-symbiosis"
 	],
 	"peerDependencies": {
-		"@techmmunity/symbiosis": "^0.0.29",
+		"@techmmunity/symbiosis": "^0.0.30",
 		"reflect-metadata": "^0.1.13",
 		"typescript": "^4.4.4"
 	},
@@ -39,7 +39,7 @@
 	},
 	"devDependencies": {
 		"@techmmunity/eslint-config": "^5.1.2",
-		"@techmmunity/symbiosis": "^0.0.29",
+		"@techmmunity/symbiosis": "^0.0.30",
 		"@types/jest": "^27.0.1",
 		"eslint": "^8.1.0",
 		"husky": "^7.0.4",
