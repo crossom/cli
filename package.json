@@ -35,7 +35,7 @@
 	"dependencies": {
 		"@techmmunity/utils": "^1.5.0",
 		"chalk": "^5.0.0",
-		"commander": "^8.3.0"
+		"commander": "^9.0.0"
 	},
 	"devDependencies": {
 		"@techmmunity/eslint-config": "^5.1.2",
