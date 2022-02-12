@@ -1,7 +1,7 @@
 /* eslint-disable no-var */
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import ts from "typescript";
+import type ts from "typescript";
 
 declare global {
 	type TS = typeof ts;

@@ -1,7 +1,8 @@
 import { writeFileSync } from "fs";
-import { getTemplate } from "../utils/get-template";
+
 import { getMigrationsPath } from "../utils/get-migrations-path";
 import { getSymbVersion } from "../utils/get-symb-version";
+import { getTemplate } from "../utils/get-template";
 
 interface Args {
 	description: string;

@@ -2,7 +2,7 @@ import {
 	Column,
 	Entity,
 	PrimaryColumn,
-	SaveDateColumn,
+	InsertDateColumn,
 } from "@techmmunity/symbiosis";
 
 @Entity("migrations")
@@ -19,6 +19,6 @@ export class MigrationEntity {
 	@Column()
 	public libVersion: string;
 
-	@SaveDateColumn()
+	@InsertDateColumn()
 	public createdAt: string;
 }

@@ -1,7 +1,9 @@
 import { cleanObj } from "@techmmunity/utils";
+
 import { format } from "./helpers/format";
+
 import type { Query } from "./types/migration-generator";
-import {
+import type {
 	CreateEntityParams,
 	CreateColumnParams,
 	CreateIndexParams,

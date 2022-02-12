@@ -1,7 +1,7 @@
-import { existsSync } from "fs";
-import { getRootPath } from "@techmmunity/utils";
-
 import { Logger } from "@techmmunity/symbiosis";
+import { getRootPath } from "@techmmunity/utils";
+import { existsSync } from "fs";
+
 import { getConfigFile } from "./get-config-file";
 
 export const getMigrationsPath = () => {

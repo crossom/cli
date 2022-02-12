@@ -1,5 +1,6 @@
 import { format } from "../../../lib/helpers/format";
-import { Query } from "../../../lib/types/migration-generator";
+
+import type { Query } from "../../../lib/types/migration-generator";
 
 describe("MigrationGenerator > format", () => {
 	const queries: Array<Query> = [

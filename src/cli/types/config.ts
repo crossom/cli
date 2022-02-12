@@ -1,4 +1,4 @@
-import { BaseConnectionOptions } from "@techmmunity/symbiosis";
+import type { BaseConnectionOptions } from "@techmmunity/symbiosis";
 
 export interface ConfigFile<Opts = BaseConnectionOptions> {
 	plugin: string;
