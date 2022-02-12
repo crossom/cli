@@ -1,4 +1,4 @@
-import { BaseQueryRunner } from "./query-runner";
+import type { BaseQueryRunner } from "./query-runner";
 
 export abstract class BaseMigration {
 	public abstract code: string;

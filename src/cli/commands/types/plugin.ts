@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { BaseConnectionOptions, BaseConnection } from "@techmmunity/symbiosis";
-import { BaseQueryRunner, BaseSyncManager } from "../../..";
+import type {
+	BaseConnectionOptions,
+	BaseConnection,
+} from "@techmmunity/symbiosis";
+
+import type { BaseQueryRunner, BaseSyncManager } from "../../..";
 
 export interface Plugin {
 	Connection: {

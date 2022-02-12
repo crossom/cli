@@ -1,6 +1,8 @@
-import { BaseConnection, BaseRepository } from "@techmmunity/symbiosis";
+import type { BaseConnection, BaseRepository } from "@techmmunity/symbiosis";
+
 import { MigrationEntity } from "./migration.entity";
-import { CreateMigrationRecordParams } from "./types/sync-manager";
+
+import type { CreateMigrationRecordParams } from "./types/sync-manager";
 
 export abstract class BaseSyncManager<Connection = any> {
 	public connection: Connection;

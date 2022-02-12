@@ -1,6 +1,6 @@
 import { Logger } from "@techmmunity/symbiosis";
-import { red } from "chalk";
-import { Command } from "commander";
+import chalk from "chalk";
+import type { Command } from "commander";
 
 import { genConfig } from "./gen-config";
 import { genMigrations } from "./gen-migration/gen-migration";
@@ -8,9 +8,11 @@ import { createMigration } from "./migration-create";
 
 const handleInvalidCommand = (program: Command) => {
 	program.on("command:*", () => {
-		Logger.cliError(`Invalid command: ${red("%s")}`);
+		Logger.cliError(`Invalid command: ${chalk.red("%s")}`);
 
-		Logger.cliLog(`See ${red("--help")} for a list of available commands.\n`);
+		Logger.cliLog(
+			`See ${chalk.red("--help")} for a list of available commands.\n`,
+		);
 
 		process.exit(1);
 	});

@@ -1,4 +1,4 @@
-import { Query } from "../types/migration-generator";
+import type { Query } from "../types/migration-generator";
 
 export const format = (queries: Array<Query>) => {
 	const query = queries

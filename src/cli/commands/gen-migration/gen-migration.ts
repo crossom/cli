@@ -1,17 +1,19 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
+import { loadEntities, Logger } from "@techmmunity/symbiosis";
+import { cleanObj, getRootPath, isEmptyObject } from "@techmmunity/utils";
 import { existsSync, writeFileSync } from "fs";
 
-import { cleanObj, getRootPath, isEmptyObject } from "@techmmunity/utils";
-import { loadEntities, Logger } from "@techmmunity/symbiosis";
-import { getConfigFile } from "../../utils/get-config-file";
-
-import { getMigrationsPath } from "../../utils/get-migrations-path";
-import { Plugin } from "../types/plugin";
-import { getTemplate } from "../../utils/get-template";
-import { getSymbVersion } from "../../utils/get-symb-version";
-import { getColType } from "./helpers/get-col-type";
 import { MigrationHandler } from "../../../lib/migration-handler";
+
+import { getColType } from "./helpers/get-col-type";
+
+import { getConfigFile } from "../../utils/get-config-file";
+import { getMigrationsPath } from "../../utils/get-migrations-path";
+import { getSymbVersion } from "../../utils/get-symb-version";
+import { getTemplate } from "../../utils/get-template";
+
+import type { Plugin } from "../types/plugin";
 
 export const genMigrations = async () => {
 	const migrationsPath = getMigrationsPath();

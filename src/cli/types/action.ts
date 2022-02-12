@@ -1,4 +1,4 @@
-import { Input } from "./input";
+import type { Input } from "./input";
 
 interface ActionParams {
 	inputs?: Array<Input>;

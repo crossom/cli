@@ -1,4 +1,4 @@
-import { MigrationEntity } from "../migration.entity";
+import type { MigrationEntity } from "../migration.entity";
 
 export type CreateMigrationRecordParams = Omit<MigrationEntity, "createdAt">;
 

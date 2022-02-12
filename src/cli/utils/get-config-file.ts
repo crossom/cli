@@ -1,7 +1,8 @@
-import { existsSync } from "fs";
-import { getRootPath, getTypeof } from "@techmmunity/utils";
 import { Logger } from "@techmmunity/symbiosis";
-import { ConfigFile } from "../types/config";
+import { getRootPath, getTypeof } from "@techmmunity/utils";
+import { existsSync } from "fs";
+
+import type { ConfigFile } from "../types/config";
 
 export const getConfigFile = () => {
 	const path = getRootPath("symbiosis.config.js");

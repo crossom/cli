@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { readdirSync } from "fs";
-import { isEmptyArray, isPackageInstalled } from "@techmmunity/utils";
-
 import { loadEntities, Logger } from "@techmmunity/symbiosis";
-import { getConfigFile } from "../utils/get-config-file";
+import { isEmptyArray, isPackageInstalled } from "@techmmunity/utils";
+import { readdirSync } from "fs";
 
-import { BaseQueryRunner } from "../../lib/query-runner";
+import type { BaseQueryRunner } from "../../lib/query-runner";
+
+import { getConfigFile } from "../utils/get-config-file";
 import { getMigrationsPath } from "../utils/get-migrations-path";
-import { Plugin } from "./types/plugin";
+
+import type { Plugin } from "./types/plugin";
 
 interface MigrationFile {
 	Migration: {
