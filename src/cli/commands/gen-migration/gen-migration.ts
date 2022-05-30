@@ -16,9 +16,9 @@ import { getThothVersion } from "../../utils/get-thoth-version";
 import type { Plugin } from "../types/plugin";
 
 export const genMigrations = async () => {
-	const migrationsPath = getMigrationsPath();
+	const migrationsPath = await getMigrationsPath();
 
-	const { connectionConfig, plugin, entitiesDir } = getConfigFile();
+	const { connectionConfig, plugin, entitiesDir } = await getConfigFile();
 
 	const pluginPath = getRootPath(`node_modules/${plugin}`);
 
@@ -28,7 +28,7 @@ export const genMigrations = async () => {
 		process.exit(1);
 	}
 
-	const { Connection } = require(pluginPath) as Plugin;
+	const { Connection } = (await import(pluginPath)) as Plugin;
 
 	const entities = await loadEntities(entitiesDir);
 
