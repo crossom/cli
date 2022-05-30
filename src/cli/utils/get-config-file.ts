@@ -4,11 +4,11 @@ import { existsSync } from "fs";
 
 import type { ConfigFile } from "../types/config";
 
-export const getConfigFile = () => {
+export const getConfigFile = async () => {
 	const path = getRootPath("thothom.config.js");
 
 	if (existsSync(path)) {
-		const config = require(path) as ConfigFile;
+		const config = (await import(path)) as ConfigFile;
 
 		if (getTypeof(config) === "object") {
 			if (!config.plugin) {

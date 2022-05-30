@@ -30,3 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 ### Dependencies
+
+- [chalk] 5.0.0 -> 5.0.1
+- [commander] 9.0.0 -> 9.3.0

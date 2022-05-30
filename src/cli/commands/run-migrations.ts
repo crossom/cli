@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import { isEmptyArray, isPackageInstalled } from "@techmmunity/utils";
@@ -21,9 +22,9 @@ interface MigrationFile {
 }
 
 export const runMigrations = async () => {
-	const migrationsPath = getMigrationsPath();
+	const migrationsPath = await getMigrationsPath();
 
-	const { connectionConfig, plugin, entitiesDir } = getConfigFile();
+	const { connectionConfig, plugin, entitiesDir } = await getConfigFile();
 
 	if (!isPackageInstalled(plugin)) {
 		Logger.cliError(`Plugin not found: ${plugin}`);
@@ -31,7 +32,9 @@ export const runMigrations = async () => {
 		process.exit(1);
 	}
 
-	const { Connection, QueryRunner, SyncManager } = require(plugin) as Plugin;
+	const { Connection, QueryRunner, SyncManager } = (await import(
+		plugin
+	)) as Plugin;
 
 	const entities = await loadEntities(entitiesDir);
 
@@ -60,15 +63,16 @@ export const runMigrations = async () => {
 	const queryRunner = new QueryRunner(connection);
 
 	for (const migrationFileName of notExecutedMigrations) {
-		const { Migration } =
-			require(`${migrationsPath}/${migrationFileName}`) as MigrationFile;
+		const { Migration } = (await import(
+			`${migrationsPath}/${migrationFileName}`
+		)) as MigrationFile;
 
 		const migration = new Migration();
 
 		try {
-			migration.up(queryRunner);
+			await migration.up(queryRunner);
 		} catch (err: any) {
-			migration.down(queryRunner).catch();
+			await migration.down(queryRunner).catch();
 		}
 	}
 };

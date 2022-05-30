@@ -1,30 +1,23 @@
 #!/usr/bin/env node
 
-/* eslint-disable @typescript-eslint/no-require-imports */
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-import { getRootPath } from "@techmmunity/utils";
 import { program } from "commander";
 
 import { loadCommands } from "../commands";
 
+import { getThothVersion } from "../utils/get-thoth-version";
 import { localBinExists } from "../utils/local-bin-exists";
 import { loadLocalBinCommandLoader } from "../utils/local-binaries";
 
-const bootstrap = () => {
-	const packageJsonPath = getRootPath("node_modules/@thothom/cli/package.json");
+const bootstrap = async () => {
+	const thothVersion = getThothVersion();
 
 	program
-		.version(
-			require(packageJsonPath).version,
-			"-v, --version",
-			"Output the current version.",
-		)
+		.version(thothVersion, "-v, --version", "Output the current version.")
 		.usage("<command> [options]")
 		.helpOption("-h, --help", "Output usage information.");
 
 	if (localBinExists()) {
-		loadLocalBinCommandLoader(program);
+		await loadLocalBinCommandLoader(program);
 	} else {
 		loadCommands(program);
 	}

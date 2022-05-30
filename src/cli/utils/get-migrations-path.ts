@@ -1,11 +1,11 @@
-import { Logger } from "@thothom/core";
 import { getRootPath } from "@techmmunity/utils";
+import { Logger } from "@thothom/core";
 import { existsSync } from "fs";
 
 import { getConfigFile } from "./get-config-file";
 
-export const getMigrationsPath = () => {
-	const { migrationsDir } = getConfigFile();
+export const getMigrationsPath = async () => {
+	const { migrationsDir } = await getConfigFile();
 
 	if (!migrationsDir) {
 		Logger.cliError("Missing config: migrationsDir");

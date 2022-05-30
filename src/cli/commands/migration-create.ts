@@ -8,8 +8,8 @@ interface Args {
 	description: string;
 }
 
-export const createMigration = ({ description }: Args) => {
-	const migrationsDirPath = getMigrationsPath();
+export const createMigration = async ({ description }: Args) => {
+	const migrationsDirPath = await getMigrationsPath();
 
 	const template = getTemplate("migration:create");
 	const code = Date.now().toString();
