@@ -4,9 +4,9 @@
  * ${DESCRIPTION}
  *
  * @plugin ${PLUGIN}
- * @symbVersion ${SYMB_VERSION}
+ * @thothomVersion ${THOTHOM_VERSION}
  */
-import { BaseMigration, BaseQueryRunner } from "@techmmunity/symbiosis-cli";
+import { BaseMigration, BaseQueryRunner } from "@thothom/cli";
 
 export class Migration implements BaseMigration {
 	public code = "${CODE}";

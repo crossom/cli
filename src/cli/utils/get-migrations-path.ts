@@ -1,4 +1,4 @@
-import { Logger } from "@techmmunity/symbiosis";
+import { Logger } from "@thothom/core";
 import { getRootPath } from "@techmmunity/utils";
 import { existsSync } from "fs";
 

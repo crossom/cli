@@ -1,4 +1,4 @@
-import { Logger } from "@techmmunity/symbiosis";
+import { Logger } from "@thothom/core";
 import chalk from "chalk";
 import type { Command } from "commander";
 

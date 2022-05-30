@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { loadEntities, Logger } from "@techmmunity/symbiosis";
 import { isEmptyArray, isPackageInstalled } from "@techmmunity/utils";
+import { loadEntities, Logger } from "@thothom/core";
 import { readdirSync } from "fs";
 
 import type { BaseQueryRunner } from "../../lib/query-runner";

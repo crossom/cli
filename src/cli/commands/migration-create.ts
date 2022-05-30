@@ -1,8 +1,8 @@
 import { writeFileSync } from "fs";
 
 import { getMigrationsPath } from "../utils/get-migrations-path";
-import { getSymbVersion } from "../utils/get-symb-version";
 import { getTemplate } from "../utils/get-template";
+import { getThothVersion } from "../utils/get-thoth-version";
 
 interface Args {
 	description: string;
@@ -13,13 +13,13 @@ export const createMigration = ({ description }: Args) => {
 
 	const template = getTemplate("migration:create");
 	const code = Date.now().toString();
-	const symbVersion = getSymbVersion();
+	const thothVersion = getThothVersion();
 
 	const formattedTemplate = template
 		.replace(/\$\{CODE\}/g, code)
 		.replace(/\$\{DESCRIPTION\}/g, description)
 		.replace(/\$\{PLUGIN\}/g, "MANUAL")
-		.replace(/\$\{SYMB_VERSION\}/g, symbVersion);
+		.replace(/\$\{THOTHOM_VERSION\}/g, thothVersion);
 
 	writeFileSync(`${migrationsDirPath}/${code}.ts`, formattedTemplate);
 };

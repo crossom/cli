@@ -1,21 +1,21 @@
 {
-	"name": "@techmmunity/symbiosis-cli",
-	"version": "0.0.4",
+	"name": "@thothom/cli",
+	"version": "0.0.1",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"license": "Apache-2.0",
 	"author": "Techmmunity",
-	"description": "CLI for @techmmunity/symbiosis",
-	"homepage": "https://symbiosis.techmmunity.com.br/",
+	"description": "CLI for @thothom/core",
+	"homepage": "https://thothom.com/",
 	"bin": {
-		"symb": "./cli/bin/index.js"
+		"thothom": "./cli/bin/index.js"
 	},
 	"bugs": {
-		"url": "https://github.com/techmmunity-symbiosis/cli/issues"
+		"url": "https://github.com/thothom/cli/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/techmmunity-symbiosis/cli.git"
+		"url": "git+https://github.com/thothom/cli.git"
 	},
 	"keywords": [
 		"orm",
@@ -25,10 +25,10 @@
 		"database",
 		"data-mapper",
 		"object-mapper",
-		"techmmunity-symbiosis"
+		"thothom"
 	],
 	"peerDependencies": {
-		"@techmmunity/symbiosis": "^0.0.30",
+		"@thothom/core": "^0.0.1",
 		"reflect-metadata": "^0.1.13",
 		"typescript": "^4.5.5"
 	},
@@ -39,7 +39,7 @@
 	},
 	"devDependencies": {
 		"@techmmunity/eslint-config": "^5.2.2",
-		"@techmmunity/symbiosis": "^0.0.30",
+		"@thothom/core": "^0.0.1",
 		"@types/jest": "^27.0.1",
 		"eslint": "^8.9.0",
 		"husky": "^7.0.4",

@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import type {
-	BaseConnectionOptions,
-	BaseConnection,
-} from "@techmmunity/symbiosis";
+import type { BaseConnectionOptions, BaseConnection } from "@thothom/core";
 
 import type { BaseQueryRunner, BaseSyncManager } from "../../..";
 

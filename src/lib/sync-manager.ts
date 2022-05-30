@@ -1,4 +1,4 @@
-import type { BaseConnection, BaseRepository } from "@techmmunity/symbiosis";
+import type { BaseConnection, BaseRepository } from "@thothom/core";
 
 import { MigrationEntity } from "./migration.entity";
 

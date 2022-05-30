@@ -1,9 +1,4 @@
-import {
-	Column,
-	Entity,
-	PrimaryColumn,
-	InsertDateColumn,
-} from "@techmmunity/symbiosis";
+import { Column, Entity, PrimaryColumn, InsertDateColumn } from "@thothom/core";
 
 @Entity("migrations")
 export class MigrationEntity {
