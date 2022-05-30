@@ -1,11 +1,11 @@
-import { Logger } from "@techmmunity/symbiosis";
 import { getRootPath, getTypeof } from "@techmmunity/utils";
+import { Logger } from "@thothom/core";
 import { existsSync } from "fs";
 
 import type { ConfigFile } from "../types/config";
 
 export const getConfigFile = () => {
-	const path = getRootPath("symbiosis.config.js");
+	const path = getRootPath("thothom.config.js");
 
 	if (existsSync(path)) {
 		const config = require(path) as ConfigFile;
@@ -30,7 +30,7 @@ export const getConfigFile = () => {
 		}
 	}
 
-	Logger.cliError("Missing config file: symbiosis.config.js");
+	Logger.cliError("Missing config file: thothom.config.js");
 	Logger.cliLog("Use `gen:config` to automatic generate a config file");
 
 	process.exit(1);

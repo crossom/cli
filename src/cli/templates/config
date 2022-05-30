@@ -1,12 +1,12 @@
 /**
- * You can use this file to automatically connect with Techmmunity Symbiosis.
+ * You can use this file to automatically connect with ThothOM.
  *
  * We recommend that you use env vars to get your database credentials
  * values, and commit this file, so it's easier to generate migrations.
  */
 
 module.exports = {
-	plugin: "@techmmunity/symbiosis-dynamodb",
+	plugin: "@thothom/dynamodb",
 	connectionConfig: {
 		namingStrategy: {
 			entity: "snake_case",

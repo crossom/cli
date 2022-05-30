@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { loadEntities, Logger } from "@techmmunity/symbiosis";
 import { cleanObj, getRootPath, isEmptyObject } from "@techmmunity/utils";
+import { loadEntities, Logger } from "@thothom/core";
 import { existsSync, writeFileSync } from "fs";
 
 import { MigrationHandler } from "../../../lib/migration-handler";
@@ -10,8 +10,8 @@ import { getColType } from "./helpers/get-col-type";
 
 import { getConfigFile } from "../../utils/get-config-file";
 import { getMigrationsPath } from "../../utils/get-migrations-path";
-import { getSymbVersion } from "../../utils/get-symb-version";
 import { getTemplate } from "../../utils/get-template";
+import { getThothVersion } from "../../utils/get-thoth-version";
 
 import type { Plugin } from "../types/plugin";
 
@@ -38,7 +38,7 @@ export const genMigrations = async () => {
 	});
 
 	const template = getTemplate("migration:generate");
-	const symbVersion = getSymbVersion();
+	const thothVersion = getThothVersion();
 
 	entities.forEach(entity => {
 		const entityMetadata = connection.entityManager.getEntityMetadata(entity);
@@ -120,7 +120,7 @@ export const genMigrations = async () => {
 			.replace(/\$\{CODE\}/g, code)
 			.replace(/\$\{DESCRIPTION\}/g, `${entityMetadata.name} Migration`)
 			.replace(/\$\{PLUGIN\}/g, plugin)
-			.replace(/\$\{SYMB_VERSION\}/g, symbVersion)
+			.replace(/\$\{THOTHOM_VERSION\}/g, thothVersion)
 			.replace(/\$\{MIGRATION_UP_LOGIC\}/g, up)
 			.replace(/\$\{MIGRATION_DOWN_LOGIC\}/g, down);
 

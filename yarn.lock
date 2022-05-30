@@ -897,20 +897,20 @@
     eslint-plugin-react-hooks "^4.2.1-alpha-4298ddbc5-20211023"
     eslint-plugin-sonarjs "^0.11.0"
 
-"@techmmunity/symbiosis@^0.0.30":
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/@techmmunity/symbiosis/-/symbiosis-0.0.30.tgz#270e25a3d57dd8932795e0397b98c158db7a1810"
-  integrity sha512-VXKcsE9snSQEuyBJezjk+xyYZYcuKOeCx1QY+XHTin36Iv+cr4BGcxgLqUw3DiF1b99DYXemgMjWVedvvtTV7g==
-  dependencies:
-    "@techmmunity/utils" "^1.9.1"
-    change-case "^4.1.2"
-    dayjs "^1.10.6"
-    tiny-glob "^0.2.9"
-
 "@techmmunity/utils@^1.5.0", "@techmmunity/utils@^1.9.1":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@techmmunity/utils/-/utils-1.10.0.tgz#9916c3ea3ef80a8bb41ec42906f2dc2f2953cfe0"
   integrity sha512-SAK7sc6M2sY5PO6EZdgqCUIcrcxqwMBCNJLqTyRCC6Q4l/1FCrenUU/JUnTZ6l2I68u/FFnoc+6FGjJPmmJ2UA==
+
+"@thothom/core@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@thothom/core/-/core-0.0.1.tgz#0a3bb7209d000fecc4fc93572ff4ec467f2d6899"
+  integrity sha512-iSOLIUVHwduOFmrJs22DoDLd+unzf5crJNPY7JrrTAXf2oOJQUhFmD5uLYopvDdsaxSFyplaFl05DuSmKoacWw==
+  dependencies:
+    "@techmmunity/utils" "^1.9.1"
+    change-case "^4.1.2"
+    dayjs "^1.11.2"
+    tiny-glob "^0.2.9"
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -1685,10 +1685,10 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-dayjs@^1.10.6:
-  version "1.10.7"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
-  integrity sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
+dayjs@^1.11.2:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.2.tgz#fa0f5223ef0d6724b3d8327134890cfe3d72fbe5"
+  integrity sha512-F4LXf1OeU9hrSYRPTTj/6FbO4HTjPKXvEIC1P2kcnFurViINCVk3ZV0xAS3XVx9MkMsXbbqlK6hjseaYbgKEHw==
 
 debug@4, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.3:
   version "4.3.3"

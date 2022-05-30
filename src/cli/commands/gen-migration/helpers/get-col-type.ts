@@ -1,7 +1,7 @@
-import { MetadataUtil } from "@techmmunity/symbiosis";
+import { MetadataUtil } from "@thothom/core";
 
 import type { ColumnType } from "../../../../lib/types/query-runner";
-import type { ColumnMetadata } from "@techmmunity/symbiosis/lib/entity-manager/types/column-metadata";
+import type { ColumnMetadata } from "@thothom/core/lib/entity-manager/types/column-metadata";
 
 export const getColType = (columnMetadata: ColumnMetadata): ColumnType => {
 	if (columnMetadata.databaseType) return columnMetadata.databaseType as any;

@@ -12,9 +12,7 @@ import { localBinExists } from "../utils/local-bin-exists";
 import { loadLocalBinCommandLoader } from "../utils/local-binaries";
 
 const bootstrap = () => {
-	const packageJsonPath = getRootPath(
-		"node_modules/@techmmunity/symbiosis-cli/package.json",
-	);
+	const packageJsonPath = getRootPath("node_modules/@thothom/cli/package.json");
 
 	program
 		.version(
